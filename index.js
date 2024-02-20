@@ -15,7 +15,7 @@ onClick("saveForm",actionfunctionname);
 onClick("copyurl",actionCopy);
 
 function actionCopy(){
-    navigator.clipboard.writeText(getValue('urllaporan'));
+    navigator.clipboard.writeText(document.getElementById('urllaporan').innerHTML);
 }
 
 function actionfunctionname(){
