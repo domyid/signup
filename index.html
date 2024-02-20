@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Laporan Pelayanan</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='index.js' type="module"></script>
+</head>
+<body>
+        <header>
+          <h2>Laporan Penyelesaian Layanan</h2>
+          <div>Diisi setelah mengisi trouble tiket</div>
+        </header>
+        
+        <div>
+          <label class="desc" id="title1" for="Field1">Nomor Tiket</label>
+          <div>
+            <input id="no" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="1">
+          </div>
+        </div>
+
+        <div>
+            <label class="desc" id="title1" for="Field1">Nama Pelapor</label>
+            <div>
+              <input id="nama" name="Field1" type="text" class="field text fn" value="" size="8" tabindex="1">
+            </div>
+          </div>
+          
+        <div>
+          <label class="desc" id="title3" for="Field3">
+            Phone
+          </label>
+          <div>
+            <input id="phone" name="Field3" type="tel" spellcheck="false" value="" maxlength="255" tabindex="3"> 
+         </div>
+        </div>
+          
+        <div>
+          <label class="desc" id="title4" for="Field4">
+            Deskripsi Masalah dan Solusi Yang Dilakukan
+          </label>
+        
+          <div>
+            <textarea id="solusi" name="Field4" spellcheck="true" rows="10" cols="50" tabindex="4"></textarea>
+          </div>
+        </div>
+        
+        <div>
+              <div>
+                <input id="saveForm" name="saveForm" type="submit" value="Submit">
+          </div>
+          </div>
+    
+</body>
+</html>
