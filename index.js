@@ -31,7 +31,7 @@ function actionfunctionname(){
 
 function responseFunction(result){
     show("linkarea");
-    setInner("urllaporan","https://ux.ulib.ac.id/rate#"+result.data);
+    setInner("urllaporan","https://ux.ulbi.ac.id/rate#"+result.data);
     console.log(result);
 }
 
