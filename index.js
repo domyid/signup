@@ -15,15 +15,7 @@ onClick("saveForm",actionfunctionname);
 onClick("copyurl",actionCopy);
 
 function actionCopy(){
-    // Get the text field
-  var copyText = document.getElementById("urllaporan");
-
-  // Select the text field
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); // For mobile devices
-
-  // Copy the text inside the text field
-  navigator.clipboard.writeText(copyText.value);
+    navigator.clipboard.writeText(getValue('urllaporan'));
 }
 
 function actionfunctionname(){
@@ -39,7 +31,7 @@ function actionfunctionname(){
 
 function responseFunction(result){
     show("linkarea");
-    setInner("urllaporan",result.data);
+    setInner("urllaporan","https://ux.ulib.ac.id/rate#"+result.data);
     console.log(result);
 }
 
