@@ -41,6 +41,7 @@ function responseFunction(result){
           setValue("nama","");
           setValue("phone","");
           setValue("solusi","");
+          show("saveForm");
     }else{
         Swal.fire({
             icon: "error",
