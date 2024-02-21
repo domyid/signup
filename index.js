@@ -33,8 +33,9 @@ function responseFunction(result){
     if("wa" in result){
         Swal.fire({
             icon: "success",
-            title: "Oops...",
-            text: "Ingatkan user "+result.user+" https://wa.me/"+result.wa+" untuk melakukan penilaian dari WA Iteung"
+            title: "Berhasil",
+            text: "Ingatkan user "+result.user+" untuk melakukan penilaian dari WA Iteung",
+            footer: '<a href="https://wa.me/'+result.wa+'">Kontak '+result.user+'</a>'
           });
           setValue("no","");
           setValue("nama","");
