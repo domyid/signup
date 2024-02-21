@@ -31,7 +31,7 @@ function actionfunctionname(){
 
 function responseFunction(result){
     show("linkarea");
-    setInner("urllaporan","https://ux.ulbi.ac.id/rate#"+result.data);
+    setInner("urllaporan","Silahkan meminta user untuk melakukan rating pekerjaan yang dikirim ke nomor whatsapp yang diinputkan. #"+result.wa);
     console.log(result);
 }
 
