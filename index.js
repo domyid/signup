@@ -39,7 +39,7 @@ function responseFunction(result){
           });
           setValue("no","");
           setValue("nama","");
-          setValue("phone","");
+          setValue("phone","62");
           setValue("solusi","");
           show("saveForm");
     }else{
