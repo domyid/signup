@@ -31,7 +31,7 @@ function actionfunctionname(){
 
 function responseFunction(result){
     show("linkarea");
-    setInner("urllaporan","Silahkan meminta user untuk melakukan rating pekerjaan yang dikirim ke nomor whatsapp yang diinputkan. #"+result.wa);
+    setInner("urllaporan","Silahkan meminta user "+laporan.nama+" untuk melakukan rating pekerjaan yang dikirim ke nomor whatsapp "+laporan.phone+". #"+result.wa);
     console.log(result);
 }
 
