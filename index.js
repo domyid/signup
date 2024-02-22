@@ -35,7 +35,7 @@ function responseFunction(result){
             icon: "success",
             title: "Berhasil",
             text: "Ingatkan user "+result.user+" untuk melakukan penilaian dari WA Iteung",
-            footer: '<a href="https://wa.me/'+result.wa+'?text={$katakata}">Kontak '+result.user+'</a>'
+            footer: '<a href="https://wa.me/'+result.wa+'?text='+katakata+'">Kontak '+result.user+'</a>'
           });
           setValue("no","");
           setValue("nama","");
