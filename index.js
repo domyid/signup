@@ -28,14 +28,14 @@ function actionfunctionname(){
     hide("saveForm");
     postWithToken("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
 }
-
+const katakata = "REMINDER\nJika%20pelayanan%20anda%20sudah%20diberikan%20oleh%20staf%20kami&#44;akan%20masuk%20notifikasi%20dari%20iTeung%20untuk%20memberikan%20&#42;FEEDBACK%20RATING&#42;&#46%20Mohon%20untuk%20diisi%20Feedback%20Rating%20nya%20untuk%20kebutuhan%20penyelesaian%20solusi%20dari%20permasalahan%20yang%20ada&#46;%20Terima%20kasih&#46;" 
 function responseFunction(result){
     if("wa" in result){
         Swal.fire({
             icon: "success",
             title: "Berhasil",
             text: "Ingatkan user "+result.user+" untuk melakukan penilaian dari WA Iteung",
-            footer: '<a href="https://wa.me/'+result.wa+'">Kontak '+result.user+'</a>'
+            footer: '<a href="https://wa.me/'+result.wa+'?text={$katakata}">Kontak '+result.user+'</a>'
           });
           setValue("no","");
           setValue("nama","");
