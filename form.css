@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #132b7b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#contentform {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contentform:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+#contentform label {
+    font-weight: bold;
+}
+
+#contentform input[type="text"],
+#contentform textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+#contentform input[type="text"]:focus,
+#contentform textarea:focus {
+    border-color: #ff8600;
+}
+
+#contentform input[type="submit"] {
+    background-color: #132b7b;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contentform input[type="submit"]:hover {
+    background-color: #ff8600;
+    transform: scale(1.05);
+}
+
+#linkarea {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#urllaporan {
+    margin-bottom: 10px;
+}
+
+#copyurl {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#copyurl:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
