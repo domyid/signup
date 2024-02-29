@@ -40,7 +40,11 @@ if (getCookie("login")===""){
             console.error("Error importing or executing whatsauth.js:", error);
         }
         </script>
-        `
+        `,
+        onRender: function () {
+            // Code to be executed after SweetAlert is rendered
+            console.log("SweetAlert rendered");
+        }
       });
 }else{
     getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction)
