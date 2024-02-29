@@ -33,8 +33,20 @@ if (getCookie("login")===""){
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
         `,
         didRender: function () {
-            import whatsauth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
-            whatsauth();
+            //import js whatsauth yang terbaru
+            import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/whatsauth.js";
+            import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/config.js";
+
+            //definisikan url wss dan keyword menggunakan base64
+            wauthparam.auth_ws="d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
+            wauthparam.keyword="aHR0cHM6Ly93YS5tZS82MjgzMTMxODk1MDAwP3RleHQ9d2g0dDVhdXRoMA==";
+            wauthparam.redirect="#";
+
+            //delete cookies session and call whatsauth qrController
+            //deleteCookie(wauthparam.tokencookiename);
+
+            qrController(wauthparam);
+
             console.log("jalan js");
             // Code to be executed after SweetAlert is rendered
             console.log("SweetAlert rendered");
