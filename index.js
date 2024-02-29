@@ -32,9 +32,13 @@ if (getCookie("login")===""){
         </div>
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
         <script type="module">
+        try {
             import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
             wAuth();
             console.log("jalan js");
+        } catch (error) {
+            console.error("Error importing or executing whatsauth.js:", error);
+        }
         </script>
         `
       });
