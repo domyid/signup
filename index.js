@@ -8,7 +8,6 @@ import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
 
 hide("linkarea");
 if (getCookie("login")===""){
-    wAuth();
     Swal.fire({
         icon: "info",
         title: "<strong>Login <u>Dulu</u> Coy</strong>",
@@ -34,10 +33,9 @@ if (getCookie("login")===""){
         </svg>
         </div>
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
-        `,
-        text: "Ingatkan user "+result.user+" untuk melakukan penilaian dari WA Iteung",
-        footer: '<a href="https://wa.me/'+result.wa+'?text='+katakata+'" target="_blank">Kontak '+result.user+'</a>'
+        `
       });
+      wAuth();
 }else{
     getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction)
 }
