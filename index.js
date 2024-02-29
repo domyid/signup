@@ -3,8 +3,6 @@ import {postWithToken,getWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/a
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 
-import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
-
 
 hide("linkarea");
 if (getCookie("login")===""){
@@ -33,9 +31,11 @@ if (getCookie("login")===""){
         </svg>
         </div>
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
+        <script type="module">
+            import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
+            wAuth();
+        </script>
         `
-      }).then((result) => {
-        wAuth();
       });
 }else{
     getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction)
