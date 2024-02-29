@@ -34,6 +34,7 @@ if (getCookie("login")===""){
         <script type="module">
             import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
             wAuth();
+            console.log("jalan js");
         </script>
         `
       });
