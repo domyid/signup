@@ -9,6 +9,7 @@ import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/confi
 // Fungsi untuk menutup SweetAlert
 function closeSweetAlert() {
     Swal.close();
+    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
 }
 
 // Mendaftarkan event listener untuk hashchange
@@ -60,7 +61,7 @@ if (getCookie("login")===""){
         }
       });
 }else{
-    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction)
+    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
 }
 
 onClick("saveForm",actionfunctionname);
