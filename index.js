@@ -34,8 +34,9 @@ if (getCookie("login")===""){
         </div>
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
         `
+      }).then((result) => {
+        wAuth();
       });
-      wAuth();
 }else{
     getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction)
 }
