@@ -41,7 +41,7 @@ if (getCookie("login")===""){
         }
         </script>
         `,
-        onRender: function () {
+        didRender: function () {
             // Code to be executed after SweetAlert is rendered
             console.log("SweetAlert rendered");
         }
