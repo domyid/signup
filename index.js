@@ -31,17 +31,11 @@ if (getCookie("login")===""){
         </svg>
         </div>
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
-        <script type="module">
-        try {
+        `,
+        didRender: function () {
             import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
             wAuth();
             console.log("jalan js");
-        } catch (error) {
-            console.error("Error importing or executing whatsauth.js:", error);
-        }
-        </script>
-        `,
-        didRender: function () {
             // Code to be executed after SweetAlert is rendered
             console.log("SweetAlert rendered");
         }
