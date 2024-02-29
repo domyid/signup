@@ -6,17 +6,8 @@ import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/whatsauth.js";
 import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/config.js";
 
-// Fungsi untuk menutup SweetAlert
-function closeSweetAlert() {
-    Swal.close();
-    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
-}
-
-// Mendaftarkan event listener untuk hashchange
-window.addEventListener('hashchange', closeSweetAlert);
-
-hide("linkarea");
-if (getCookie("login")===""){
+// Fungsi sweet Alert WhatsAuth login
+function openSweetAlertLogin(){
     Swal.fire({
         icon: "info",
         title: "<strong>Login <u>Dulu</u> Coy</strong>",
@@ -60,6 +51,19 @@ if (getCookie("login")===""){
             window.addEventListener('hashchange', closeSweetAlert);
         }
       });
+}
+// Fungsi untuk menutup SweetAlert
+function closeSweetAlert() {
+    Swal.close();
+    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
+}
+
+// Mendaftarkan event listener untuk hashchange
+window.addEventListener('hashchange', closeSweetAlert);
+
+hide("linkarea");
+if (getCookie("login")===""){
+    openSweetAlertLogin();
 }else{
     getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
 }
@@ -79,7 +83,11 @@ function actionfunctionname(){
         solusi:getValue("solusi")
     };
     hide("saveForm");
-    postWithToken("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
+    if (getCookie("login")===""){
+        openSweetAlertLogin();
+    }else{
+        postWithToken("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
+    }  
 }
 const katakata = "&#42;REMINDER&#42;%0AJika%20pelayanan%20anda%20sudah%20diberikan%20oleh%20staf%20kami&#44;akan%20masuk%20notifikasi%20dari%20iTeung%20untuk%20memberikan%20&#42;FEEDBACK%20RATING&#42;&#46%20Mohon%20untuk%20diisi%20Feedback%20Rating%20nya%20untuk%20kebutuhan%20penyelesaian%20solusi%20dari%20permasalahan%20yang%20ada&#46;%20Terima%20kasih&#46;" 
 function responseFunction(result){
