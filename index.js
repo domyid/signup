@@ -2,7 +2,9 @@ import { onClick,getValue,setValue,hide,show,setInner } from "https://cdn.jsdeli
 import {postWithToken,getWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.6/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
-
+//import js whatsauth yang terbaru
+import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/whatsauth.js";
+import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/config.js";
 
 hide("linkarea");
 if (getCookie("login")===""){
@@ -33,10 +35,6 @@ if (getCookie("login")===""){
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
         `,
         didRender: function () {
-            //import js whatsauth yang terbaru
-            import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/whatsauth.js";
-            import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/config.js";
-
             //definisikan url wss dan keyword menggunakan base64
             wauthparam.auth_ws="d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
             wauthparam.keyword="aHR0cHM6Ly93YS5tZS82MjgzMTMxODk1MDAwP3RleHQ9d2g0dDVhdXRoMA==";
