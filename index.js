@@ -6,6 +6,14 @@ import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/whatsauth.js";
 import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/config.js";
 
+// Fungsi untuk menutup SweetAlert
+function closeSweetAlert() {
+    Swal.close();
+}
+
+// Mendaftarkan event listener untuk hashchange
+window.addEventListener('hashchange', closeSweetAlert);
+
 hide("linkarea");
 if (getCookie("login")===""){
     Swal.fire({
@@ -38,7 +46,7 @@ if (getCookie("login")===""){
             //definisikan url wss dan keyword menggunakan base64
             wauthparam.auth_ws="d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
             wauthparam.keyword="aHR0cHM6Ly93YS5tZS82MjgzMTMxODk1MDAwP3RleHQ9d2g0dDVhdXRoMA==";
-            wauthparam.redirect="#";
+            wauthparam.redirect="#"+crypto.randomUUID();
 
             //delete cookies session and call whatsauth qrController
             //deleteCookie(wauthparam.tokencookiename);
@@ -48,6 +56,7 @@ if (getCookie("login")===""){
             console.log("jalan js");
             // Code to be executed after SweetAlert is rendered
             console.log("SweetAlert rendered");
+            window.addEventListener('hashchange', closeSweetAlert);
         }
       });
 }else{
