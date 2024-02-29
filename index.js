@@ -33,8 +33,8 @@ if (getCookie("login")===""){
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
         `,
         didRender: function () {
-            import wAuth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
-            wAuth();
+            import whatsauth from "https://ux.ulbi.ac.id/auth/whatsauth.js";
+            whatsauth();
             console.log("jalan js");
             // Code to be executed after SweetAlert is rendered
             console.log("SweetAlert rendered");
