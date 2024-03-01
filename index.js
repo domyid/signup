@@ -35,20 +35,14 @@ function openSweetAlertLogin(){
         <p class="font-bold text-center mb-4" id="whatsauthcounter">counter</p>
         `,
         didRender: function () {
-            //definisikan url wss dan keyword menggunakan base64
-            wauthparam.auth_ws="d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
-            wauthparam.keyword="aHR0cHM6Ly93YS5tZS82MjgzMTMxODk1MDAwP3RleHQ9d2g0dDVhdXRoMA==";
-            wauthparam.redirect="#"+crypto.randomUUID();
+          // Tutup sweet alert setelah berhasil scan
+          window.addEventListener('hashchange', closeSweetAlert);
+          //definisikan url wss dan keyword menggunakan base64
+          wauthparam.auth_ws="d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
+          wauthparam.keyword="aHR0cHM6Ly93YS5tZS82MjgzMTMxODk1MDAwP3RleHQ9d2g0dDVhdXRoMA==";
+          wauthparam.redirect="#"+crypto.randomUUID();
 
-            //delete cookies session and call whatsauth qrController
-            //deleteCookie(wauthparam.tokencookiename);
-
-            qrController(wauthparam);
-
-            console.log("jalan js");
-            // Code to be executed after SweetAlert is rendered
-            console.log("SweetAlert rendered");
-            window.addEventListener('hashchange', closeSweetAlert);
+          qrController(wauthparam);
         }
       });
 }
@@ -58,11 +52,7 @@ function closeSweetAlert() {
     getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
     show("saveForm");
 }
-
-// Mendaftarkan event listener untuk hashchange
-window.addEventListener('hashchange', closeSweetAlert);
-
-hide("linkarea");
+// Mengecek Cookies Login
 if (getCookie("login")===""){
     openSweetAlertLogin();
 }else{
@@ -83,11 +73,11 @@ function actionfunctionname(){
         phone:getValue("phone"),
         solusi:getValue("solusi")
     };
-    hide("saveForm");
     if (getCookie("login")===""){
         openSweetAlertLogin();
     }else{
         postWithToken("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
+        hide("saveForm");
     }  
 }
 const katakata = "&#42;REMINDER&#42;%0AJika%20pelayanan%20anda%20sudah%20diberikan%20oleh%20staf%20kami&#44;akan%20masuk%20notifikasi%20dari%20iTeung%20untuk%20memberikan%20&#42;FEEDBACK%20RATING&#42;&#46%20Mohon%20untuk%20diisi%20Feedback%20Rating%20nya%20untuk%20kebutuhan%20penyelesaian%20solusi%20dari%20permasalahan%20yang%20ada&#46;%20Terima%20kasih&#46;" 
