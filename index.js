@@ -46,8 +46,8 @@ function responseFunction(result){
         Swal.fire({
             icon: "success",
             title: "Berhasil",
-            text: "Ingatkan user "+result.user+" untuk melakukan penilaian dari WA Iteung",
-            footer: '<a href="https://wa.me/'+result.wa+'?text='+katakata+'" target="_blank">Kontak '+result.user+'</a>'
+            text: "Selamat kak "+result.data.name+" sudah terdaftar dengan ID: "+result.data._id,
+            footer: '<a href="https://wa.me/62895601060000?text='+katakata+'" target="_blank">Verifikasi Pendaftaran</a>'
           });
           setValue("no",result.data.phonenumber);
           setValue("nama",result.data.name);
