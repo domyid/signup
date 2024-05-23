@@ -69,4 +69,10 @@ function responseFunction(result){
 function getUserFunction(result){
   setValue("no",result.data.phonenumber);
   setValue("nama",result.data.name);
+  if (result.status!==404){
+    setValue("email",result.data.phonenumber);
+    setValue("github",result.data.githubusername);
+    setValue("gitlab",result.data.gitlabusername);
+    setValue("githost",result.data.githostusername); 
+  }
 }
