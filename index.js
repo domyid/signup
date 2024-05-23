@@ -1,11 +1,12 @@
 import { onClick,getValue,setValue,hide,show,setInner } from "https://cdn.jsdelivr.net/gh/jscroot/element@0.1.5/croot.js";
-import {postWithToken,getWithHeader} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.6/croot.js";
+import {postJSON,getJSON} from "https://cdn.jsdelivr.net/gh/jscroot/api@0.0.7/croot.js";
 import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.js";
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 //import js whatsauth yang terbaru
 import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/whatsauth.js";
 import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.3.3/config.js";
 
+const urlGetDataUser="https://api.do.my.id/data/user";
 // Fungsi sweet Alert WhatsAuth login
 function openSweetAlertLogin(){
     Swal.fire({
@@ -49,14 +50,14 @@ function openSweetAlertLogin(){
 // Fungsi untuk menutup SweetAlert
 function closeSweetAlert() {
     Swal.close();
-    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
+    getJSON(urlGetDataUser,"login",getCookie("login"),getUserFunction);
     show("saveForm");
 }
 // Mengecek Cookies Login
 if (getCookie("login")===""){
     openSweetAlertLogin();
 }else{
-    getWithHeader("https://mrt.ulbi.ac.id/notif/ux/getdatauser","login",getCookie("login"),getUserFunction);
+    getJSON(urlGetDataUser,"login",getCookie("login"),getUserFunction);
 }
 
 onClick("saveForm",actionfunctionname);
@@ -76,7 +77,7 @@ function actionfunctionname(){
     if (getCookie("login")===""){
         openSweetAlertLogin();
     }else{
-        postWithToken("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
+        postJSON("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
         hide("saveForm");
     }  
 }
