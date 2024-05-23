@@ -5,12 +5,7 @@ import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 
 const urlGetDataUser="https://api.do.my.id/data/user";
 const urlPostDataUser="https://api.do.my.id/data/user";
-// Fungsi untuk menutup SweetAlert
-function closeSweetAlert() {
-    Swal.close();
-    getJSON(urlGetDataUser,"login",getCookie("login"),getUserFunction);
-    show("saveForm");
-}
+
 // Mengecek Cookies Login
 if (getCookie("login")===""){
     redirect("/signin");
