@@ -51,7 +51,7 @@ function responseFunction(result){
           });
           setValue("no",result.data.phonenumber);
           setValue("nama",result.data.name);
-          setValue("email",result.data.phonenumber);
+          setValue("email",result.data.email);
           setValue("github",result.data.githubusername);
           setValue("gitlab",result.data.gitlabusername);
           setValue("githost",result.data.githostusername); 
