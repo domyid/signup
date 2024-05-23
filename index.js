@@ -109,5 +109,6 @@ function responseFunction(result){
 
 
 function getUserFunction(result){
-    setInner("header","Petugas : "+result.nama);
+  setValue("no",result.data.phonenumber);
+  setValue("nama",result.data.name);
 }
