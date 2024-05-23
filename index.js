@@ -19,11 +19,6 @@ if (getCookie("login")===""){
 }
 
 onClick("saveForm",actionfunctionname);
-//onClick("copyurl",actionCopy);
-
-function actionCopy(){
-    navigator.clipboard.writeText(document.getElementById('urllaporan').innerHTML);
-}
 
 function actionfunctionname(){
     let user={
