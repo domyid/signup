@@ -41,7 +41,7 @@ function actionfunctionname(){
 }
 
 function responseFunction(result){
-    if("wa" in result){
+    if(result.status === 200){
         const katakata = "&#42;REMINDER&#42;%0AJika%20pelayanan%20anda%20sudah%20diberikan%20oleh%20staf%20kami&#44;akan%20masuk%20notifikasi%20dari%20iTeung%20untuk%20memberikan%20&#42;FEEDBACK%20RATING&#42;&#46%20Mohon%20untuk%20diisi%20Feedback%20Rating%20nya%20untuk%20kebutuhan%20penyelesaian%20solusi%20dari%20permasalahan%20yang%20ada&#46;%20Terima%20kasih&#46;"
         Swal.fire({
             icon: "success",
@@ -49,10 +49,12 @@ function responseFunction(result){
             text: "Ingatkan user "+result.user+" untuk melakukan penilaian dari WA Iteung",
             footer: '<a href="https://wa.me/'+result.wa+'?text='+katakata+'" target="_blank">Kontak '+result.user+'</a>'
           });
-          setValue("no","");
-          setValue("nama","");
-          setValue("phone","62");
-          setValue("solusi","");
+          setValue("no",result.data.phonenumber);
+          setValue("nama",result.data.name);
+          setValue("email",result.data.phonenumber);
+          setValue("github",result.data.githubusername);
+          setValue("gitlab",result.data.gitlabusername);
+          setValue("githost",result.data.githostusername); 
           show("saveForm");
     }else{
         Swal.fire({
