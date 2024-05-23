@@ -4,6 +4,7 @@ import {getCookie} from "https://cdn.jsdelivr.net/gh/jscroot/cookie@0.0.1/croot.
 import {redirect} from "https://cdn.jsdelivr.net/gh/jscroot/url@0.0.9/croot.js";
 
 const urlGetDataUser="https://api.do.my.id/data/user";
+const urlPostDataUser="https://api.do.my.id/data/user";
 // Fungsi untuk menutup SweetAlert
 function closeSweetAlert() {
     Swal.close();
@@ -25,16 +26,16 @@ function actionCopy(){
 }
 
 function actionfunctionname(){
-    let laporan={
-        no:getValue("no"),
-        nama:getValue("nama"),
-        phone:getValue("phone"),
-        solusi:getValue("solusi")
+    let user={
+        email:getValue("email"),
+        githubusername:getValue("github"),
+        gitlabusername:getValue("gitlab"),
+        GitHostUsername:getValue("githost")
     };
     if (getCookie("login")===""){
         redirect("/signin");
     }else{
-        postJSON("https://mrt.ulbi.ac.id/notif/ux/postlaporan","login",getCookie("login"),laporan,responseFunction);
+        postJSON(urlPostDataUser,"login",getCookie("login"),user,responseFunction);
         hide("saveForm");
     }  
 }
