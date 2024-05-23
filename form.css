@@ -31,8 +31,10 @@ header {
     font-weight: bold;
 }
 
+
 #contentform input[type="text"],
-#contentform textarea {
+#contentform textarea,
+#contentform input[type="email"] {
     width: calc(100% - 10px);
     padding: 10px;
     margin: 10px 0;
@@ -42,7 +44,8 @@ header {
 }
 
 #contentform input[type="text"]:focus,
-#contentform textarea:focus {
+#contentform textarea:focus,
+#contentform input[type="email"]:focus {
     border-color: #ff8600;
 }
 
